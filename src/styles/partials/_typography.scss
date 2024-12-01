@@ -1,6 +1,13 @@
 h1 {
-    color: var(--color-text-light);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: calc(var(--spacing-unit) * 0.25);
-  }
+  color: var(--color-text-light);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: calc(var(--spacing-unit) * 0.25);
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: var(--spacing-unit-xl);
+  text-align: center;
+  font-size: 2rem;
+}

@@ -1,0 +1,16 @@
+.libraries {
+  .libraries-list {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+    li {
+      min-width: 180px;
+      border: 1px solid rgba(151, 117, 250, 0.15);
+
+      a:hover {
+        background: rgba(151, 117, 250, 0.12);
+        transform: translateY(-2px);
+        border-color: rgba(151, 117, 250, 0.25);
+      }
+    }
+  }
+}

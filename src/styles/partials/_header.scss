@@ -45,13 +45,8 @@
     transform: translateX(-50%);
     width: 60%;
     height: 1px;
-    background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   }
-
 
   p {
     font-size: 1.03rem;

@@ -1,0 +1,117 @@
+.skills {
+  .skills-list {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+    li {
+      min-width: 140px;
+
+      &.angular {
+        background: rgba(220, 50, 47, 0.2);
+        border: 1px solid rgba(220, 50, 47, 0.4);
+      }
+
+      &.typescript {
+        background: rgba(49, 120, 198, 0.2);
+        border: 1px solid rgba(49, 120, 198, 0.4);
+      }
+
+      &.javascript {
+        background: rgba(247, 223, 30, 0.2);
+        border: 1px solid rgba(247, 223, 30, 0.4);
+      }
+
+      &.nx {
+        background: rgba(137, 174, 243, 0.41);
+        border: 1px solid rgba(249, 81, 146, 0.4);
+      }
+
+      &.ngrx {
+        background: rgba(205, 161, 223, 0.425);
+        border: 1px solid rgba(226, 184, 237, 0.4);
+      }
+
+      &.angular-signals {
+        background: rgba(72, 72, 72, 0.523);
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      &.css {
+        background: rgba(72, 10, 130, 0.868);
+        border: 1px solid rgba(138, 43, 226, 0.4);
+      }
+
+      &.tailwind-css {
+        background: rgba(4, 29, 40, 0.613);
+        border: 1px solid rgba(56, 189, 248, 0.4);
+      }
+
+      &.cypress {
+        background: rgba(5, 71, 5, 0.773);
+        border: 1px solid rgba(0, 128, 0, 0.4);
+      }
+
+      &.git {
+        background: rgba(88, 36, 15, 0.994);
+        border: 1px solid rgba(240, 94, 35, 0.4);
+      }
+
+      &.firebase {
+        background: rgba(65, 53, 4, 0.942);
+        border: 1px solid rgba(255, 204, 0, 0.4);
+      }
+
+      &.graphql {
+        background: rgba(74, 6, 52, 0.767);
+        border: 1px solid rgba(225, 0, 152, 0.4);
+      }
+
+      &.pwa {
+        background: rgba(17, 2, 31, 0.787);
+        border: 1px solid rgba(41, 7, 93, 0.613);
+      }
+
+      &.accessibility {
+        background: rgba(7, 32, 60, 0.721);
+        border: 1px solid rgba(23, 80, 144, 0.3);
+      }
+
+      &.jest {
+        background: rgba(121, 24, 24, 0.7);
+        border: 1px solid rgba(255, 0, 0, 0.4);
+      }
+
+      &.semantic-web {
+        background: rgba(62, 44, 11, 0.691);
+        border: 1px solid rgba(0, 255, 0, 0.4);
+      }
+
+      &.angular-material {
+        background: rgba(18, 24, 92, 0.658);
+        border: 1px solid rgba(27, 35, 126, 0.25);
+      }
+
+      &.bootstrap {
+        background: rgba(36, 6, 76, 0.656);
+        border: 1px solid rgba(118, 18, 247, 0.4);
+      }
+
+      &.rxjs {
+        background: rgba(93, 9, 58, 0.796);
+        border: 1px solid rgba(234, 17, 142, 0.4);
+      }
+
+      a {
+        &:hover {
+          background: rgba(151, 117, 250, 0.15);
+          transform: translateY(-2px);
+        }
+
+        img {
+          width: 70px;
+          height: 70px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
