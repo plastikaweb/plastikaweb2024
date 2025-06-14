@@ -31,6 +31,8 @@
     display: flex;
     justify-content: center;
     margin: calc(var(--spacing-unit) * 1.5) 0;
+    gap: calc(var(--spacing-unit) * 1.5);
+
 
     a {
       display: block;

@@ -100,6 +100,11 @@
         border: 1px solid rgba(234, 17, 142, 0.4);
       }
 
+      &.astro {
+        background: rgba(243, 117, 0, 0.575);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
       a {
         &:hover {
           background: rgba(151, 117, 250, 0.15);
