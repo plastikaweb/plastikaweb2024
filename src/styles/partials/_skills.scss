@@ -1,120 +1,233 @@
 .skills {
   .skills-list {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
 
     li {
-      min-width: 140px;
+      background: rgba(26, 27, 38, 0.6);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
 
-      &.angular {
-        background: rgba(220, 50, 47, 0.2);
-        border: 1px solid rgba(220, 50, 47, 0.4);
+      // Color accent line at bottom
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: currentColor; // Will use color property from specific classes
+        opacity: 0.7;
+        transition: height 0.3s ease;
       }
 
-      &.typescript {
-        background: rgba(49, 120, 198, 0.2);
-        border: 1px solid rgba(49, 120, 198, 0.4);
+      // Focus visible for keyboard navigation
+      &:focus-within {
+        transform: translateY(-6px);
+        background: rgba(26, 27, 38, 0.7);
+        box-shadow: 0 0 0 2px var(--color-accent);
+
+        &::after {
+          height: 4px;
+          opacity: 1;
+        }
       }
 
-      &.javascript {
-        background: rgba(247, 223, 30, 0.2);
-        border: 1px solid rgba(247, 223, 30, 0.4);
+      // Hover effects only for devices that support hover
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-6px);
+          background: rgba(26, 27, 38, 0.7);
+
+          &::after {
+            height: 4px;
+            opacity: 1;
+          }
+        }
       }
 
+      // Reduced motion preference
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        &:hover, &:focus-within {
+          transform: none;
+        }
+
+        a img {
+          transition: none;
+        }
+      }
+
+      // Specific colors (using color property for inheritance)
+      &.angular { color: #dd322f; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(221, 50, 47, 0.3); border-color: rgba(221, 50, 47, 0.3); } } }
+      &.typescript { color: #3178c6; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(49, 120, 198, 0.3); border-color: rgba(49, 120, 198, 0.3); } } }
+      &.javascript { color: #f7df1e; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(247, 223, 30, 0.3); border-color: rgba(247, 223, 30, 0.3); } } }
       &.nx {
-        background: rgba(137, 174, 243, 0.41);
-        border: 1px solid rgba(249, 81, 146, 0.4);
-      }
+        color: #98c7f5;
+        @media (hover: hover) {
+          &:hover {
+            box-shadow: 0 10px 30px -10px rgba(152, 199, 245, 0.3);
+            border-color: rgba(152, 199, 245, 0.3);
+          }
+        }
+        // Invert dark icon to white for better visibility
+        a img {
+          filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+        }
 
-      &.ngrx {
-        background: rgba(205, 161, 223, 0.425);
-        border: 1px solid rgba(226, 184, 237, 0.4);
+        // Preserve white color on hover
+        @media (hover: hover) {
+          a:hover img {
+            filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+          }
+        }
       }
-
-      &.angular-signals {
-        background: rgba(72, 72, 72, 0.523);
-        border: 1px solid rgba(0, 0, 0, 0.2);
-      }
-
-      &.css {
-        background: rgba(72, 10, 130, 0.868);
-        border: 1px solid rgba(138, 43, 226, 0.4);
-      }
-
-      &.tailwind-css {
-        background: rgba(4, 29, 40, 0.613);
-        border: 1px solid rgba(56, 189, 248, 0.4);
-      }
-
+      &.ngrx { color: #ba2bd2; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(186, 43, 210, 0.3); border-color: rgba(186, 43, 210, 0.3); } } }
+      &.angular-signals { color: #a8a8a8; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(168, 168, 168, 0.3); border-color: rgba(168, 168, 168, 0.3); } } }
+      &.css { color: #264de4; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(38, 77, 228, 0.3); border-color: rgba(38, 77, 228, 0.3); } } }
+      &.tailwind-css { color: #38bdf8; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3); border-color: rgba(56, 189, 248, 0.3); } } }
       &.cypress {
-        background: rgba(5, 71, 5, 0.773);
-        border: 1px solid rgba(0, 128, 0, 0.4);
+        color: #00bf88;
+        @media (hover: hover) {
+          &:hover {
+            box-shadow: 0 10px 30px -10px rgba(0, 191, 136, 0.3);
+            border-color: rgba(0, 191, 136, 0.3);
+          }
+        }
+        // Invert dark icon to white for better visibility
+        a img {
+          filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+        }
+        // Preserve white color on hover
+        @media (hover: hover) {
+          a:hover img {
+            filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+          }
+        }
       }
-
-      &.git {
-        background: rgba(88, 36, 15, 0.994);
-        border: 1px solid rgba(240, 94, 35, 0.4);
+      &.git { color: #f1502f; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(241, 80, 47, 0.3); border-color: rgba(241, 80, 47, 0.3); } } }
+      &.github {
+        color: #ffffff;
+        @media (hover: hover) {
+          &:hover {
+            box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+          }
+        }
+        // Invert dark icon to white for better visibility
+        a img {
+          filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+        }
+        // Preserve white color on hover
+        @media (hover: hover) {
+          a:hover img {
+            filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+          }
+        }
       }
-
-      &.firebase {
-        background: rgba(65, 53, 4, 0.942);
-        border: 1px solid rgba(255, 204, 0, 0.4);
-      }
-
-      &.graphql {
-        background: rgba(74, 6, 52, 0.767);
-        border: 1px solid rgba(225, 0, 152, 0.4);
-      }
-
+      &.firebase { color: #ffca28; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(255, 202, 40, 0.3); border-color: rgba(255, 202, 40, 0.3); } } }
+      &.graphql { color: #e10098; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(225, 0, 152, 0.3); border-color: rgba(225, 0, 152, 0.3); } } }
       &.pwa {
-        background: rgba(17, 2, 31, 0.787);
-        border: 1px solid rgba(41, 7, 93, 0.613);
+        color: #5a0fc8;
+        @media (hover: hover) {
+          &:hover {
+            box-shadow: 0 10px 30px -10px rgba(90, 15, 200, 0.3);
+            border-color: rgba(90, 15, 200, 0.3);
+          }
+        }
+        // Invert dark icon to white for better visibility
+        a img {
+          filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+        }
+        // Preserve white color on hover
+        @media (hover: hover) {
+          a:hover img {
+            filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+          }
+        }
       }
-
-      &.accessibility {
-        background: rgba(7, 32, 60, 0.721);
-        border: 1px solid rgba(23, 80, 144, 0.3);
-      }
-
-      &.jest {
-        background: rgba(121, 24, 24, 0.7);
-        border: 1px solid rgba(255, 0, 0, 0.4);
-      }
-
-      &.semantic-web {
-        background: rgba(62, 44, 11, 0.691);
-        border: 1px solid rgba(0, 255, 0, 0.4);
-      }
-
-      &.angular-material {
-        background: rgba(18, 24, 92, 0.658);
-        border: 1px solid rgba(27, 35, 126, 0.25);
-      }
-
-      &.bootstrap {
-        background: rgba(36, 6, 76, 0.656);
-        border: 1px solid rgba(118, 18, 247, 0.4);
-      }
-
-      &.rxjs {
-        background: rgba(93, 9, 58, 0.796);
-        border: 1px solid rgba(234, 17, 142, 0.4);
-      }
-
+      &.accessibility { color: #005a9c; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(0, 90, 156, 0.3); border-color: rgba(0, 90, 156, 0.3); } } }
+      &.jest { color: #c63d14; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(198, 61, 20, 0.3); border-color: rgba(198, 61, 20, 0.3); } } }
+      &.semantic-web { color: #00bcf2; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(0, 188, 242, 0.3); border-color: rgba(0, 188, 242, 0.3); } } }
+      &.angular-material { color: #3f51b5; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(63, 81, 181, 0.3); border-color: rgba(63, 81, 181, 0.3); } } }
+      &.bootstrap { color: #563d7c; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(86, 61, 124, 0.3); border-color: rgba(86, 61, 124, 0.3); } } }
+      &.rxjs { color: #b7178c; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(183, 23, 140, 0.3); border-color: rgba(183, 23, 140, 0.3); } } }
       &.astro {
-        background: rgba(243, 117, 0, 0.575);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: #ff5d01;
+        @media (hover: hover) {
+          &:hover {
+            box-shadow: 0 10px 30px -10px rgba(255, 93, 1, 0.3);
+            border-color: rgba(255, 93, 1, 0.3);
+          }
+        }
+        // Invert dark icon to white for better visibility
+        a img {
+          filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+        }
+        // Preserve white color on hover
+        @media (hover: hover) {
+          a:hover img {
+            filter: brightness(0) invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+          }
+        }
       }
+      &.pocketbase { color: #b8bec8; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(184, 190, 200, 0.3); border-color: rgba(184, 190, 200, 0.3); } } }
+      &.headless-wordpress { color: #21759b; @media (hover: hover) { &:hover { box-shadow: 0 10px 30px -10px rgba(33, 117, 155, 0.3); border-color: rgba(33, 117, 155, 0.3); } } }
 
       a {
-        &:hover {
-          background: rgba(151, 117, 250, 0.15);
-          transform: translateY(-2px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        color: var(--color-text);
+        transition: transform 0.3s ease;
+        // Remove default outline as we handle it in parent :focus-within
+        outline: none;
+
+        span {
+          margin-top: 1.2rem;
+          font-weight: 600;
+          font-size: 0.9rem;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          text-align: center;
+          color: var(--color-text-light);
+          transition: color 0.3s ease;
         }
 
         img {
-          width: 70px;
-          height: 70px;
+          width: 48px;
+          height: 48px;
           object-fit: contain;
+          // Add a subtle light glow to separate dark icons from dark background
+          filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.15)) brightness(1.1);
+          transition: all 0.4s ease;
+          will-change: transform, filter;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            img {
+               transform: scale(1.15) rotate(5deg);
+               // Enhance glow on hover
+               filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4)) brightness(1.2);
+            }
+
+            span {
+              color: white;
+            }
+          }
         }
       }
     }

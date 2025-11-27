@@ -3,6 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "author": {
+    "email": "info@plastikaweb.com",
+    "name": "Carlos Matheu Armengol"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
