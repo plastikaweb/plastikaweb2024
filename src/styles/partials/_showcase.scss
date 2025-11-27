@@ -93,13 +93,8 @@
       font-size: 0.9rem;
       font-weight: 500;
       border: 1px solid rgba(151, 117, 250, 0.2);
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: rgba(151, 117, 250, 0.2);
-        border-color: rgba(151, 117, 250, 0.4);
-        transform: translateY(-1px);
-      }
+      // Remove transition and hover effects to make them look static
+      pointer-events: none;
     }
   }
 }
